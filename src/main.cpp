@@ -9,7 +9,7 @@ FASTLED_USING_NAMESPACE
 #include <credentials.h>
 #include <methods.h>
 
-
+CRGB leds[NUM_LEDS];
 
 void setup() {
   // put your setup code here, to run once:

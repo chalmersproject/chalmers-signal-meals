@@ -15,6 +15,5 @@ int last_position;
 #define COLOR_ORDER GRB
 #define NUM_LEDS    4
 #define ARRAY_SIZE(A) (sizeof(A) / sizeof((A)[0]))
-CRGB leds[NUM_LEDS];
 #define BRIGHTNESS 255
 #define FRAMES_PER_SECOND  40
