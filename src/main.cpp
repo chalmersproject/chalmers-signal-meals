@@ -12,10 +12,16 @@ FASTLED_USING_NAMESPACE
 CRGB leds[NUM_LEDS];
 
 void setup() {
-  // put your setup code here, to run once:
+  delay(3000);
   setup_wifi();
+  setup_firebase();
+  setup_leds();
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
+  if(check_position_change()){
+    //push position to firebase; update LEDs for new position
+    position_update(position);
+  }
+  fast_led_update();
 }
