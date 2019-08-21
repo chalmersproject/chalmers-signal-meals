@@ -1,11 +1,14 @@
 //Library Includes
 #include <Arduino.h>
 #include <ESP8266WiFi.h>  // Enables the ESP8266 to connect to the local network (via WiFi)
-#include <Adafruit_NeoPixel.h>
+#include <FastLED.h>
+FASTLED_USING_NAMESPACE
 #include <FirebaseArduino.h>
 
+#include <variables.h>
 #include <credentials.h>
 #include <methods.h>
+
 
 
 void setup() {

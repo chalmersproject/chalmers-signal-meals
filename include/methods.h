@@ -24,7 +24,7 @@ void setup_wifi()
     Serial.println(WiFi.localIP());
 }
 
-void setup_firebae()
+void setup_firebase()
 {
     // Firebase.begin()
 }
