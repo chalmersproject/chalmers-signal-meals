@@ -55,16 +55,45 @@ bool check_position_change(){
   check_position();
   if(last_position != position)
   {
-    return true;
+      last_position = position;
+      return true;
   }
   else{
     return false;
   }
 }
+
 void position_update(int position)
 {
+  //set color for position
+  //set message for position
+  switch (position){
+      case switch_0 :
+        color = "none";
+        hue_sine_center = 50;
+        for (int i = 0; i > 3; i++){led_range[i] = leds[0 + i];}
+        message = "n/a";
+        break;
+      case switch_1 :
+        message = "no meal";
+        color = "red";
+        break;
+      case switch_2 :
+        message = "meal";
+        color = "green";
+        break;
+      case switch_3 :
+        message = "snacks";
+        color = "yellow";
+        break;
+  }
   //update neopixels to "push in progress"
-  //update local json
+  EVERY_N_MILLISECONDS( 200 )
+  {
+    bool _switch = (led_switch = 1 / -1 ? HIGH : LOW);
+    digitalWrite();
+    led_switch *= -1;
+  }
   //push updated json to firebase
   //wait for push "success"
   //update neopixels to "push success"
