@@ -34,6 +34,11 @@ void setup_leds()
     FastLED.setBrightness(BRIGHTNESS);  
 }
 
+void init_positions(Position position, int[4] lights, bool active){ 
+  position.lights = lights;
+  position.active = active;
+}
+
 int check_position()
 {
   for(int i = 0; i < sizeof(switches); i++)
