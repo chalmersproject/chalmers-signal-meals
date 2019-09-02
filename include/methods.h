@@ -104,12 +104,12 @@ void position_update(int position)
   //update neopixels to "push success"
 }
 
-void fast_led_update()
+void fast_led_update(int delay)
 {
   // send the 'leds' array out to the actual LED strip    
   FastLED.show();  
   // insert a delay to keep the framerate modest
-  FastLED.delay(1000/FRAMES_PER_SECOND); 
+  FastLED.delay(delay/FRAMES_PER_SECOND); 
 
   // do some periodic updates
 //   EVERY_N_MILLISECONDS( 20 ) { gHue++; } // slowly cycle the "base color" through the rainbow

@@ -2,5 +2,9 @@
     "terminal.integrated.env.osx": {
         "PATH": "/Users/chalmers/.platformio/penv/bin:/Users/chalmers/.platformio/penv:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin",
         "PLATFORMIO_CALLER": "vscode"
+    },
+    "terminal.integrated.env.windows": {
+        "PATH": "C:\\Users\\Chalmers\\.platformio\\penv\\Scripts;C:\\Users\\Chalmers\\.platformio\\penv;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Windows\\System32\\OpenSSH\\;C:\\Program Files\\Microsoft VS Code\\bin;C:\\Program Files\\NVIDIA Corporation\\NVIDIA NvDLISR;C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files\\PuTTY\\;C:\\Users\\Chalmers\\AppData\\Local\\Microsoft\\WindowsApps;C:\\Users\\Chalmers\\AppData\\Local\\GitHubDesktop\\bin;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Windows\\System32\\OpenSSH\\;C:\\Program Files\\Microsoft VS Code\\bin;C:\\Program Files\\NVIDIA Corporation\\NVIDIA NvDLISR;C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files\\PuTTY\\;C:\\Users\\Chalmers\\AppData\\Local\\Microsoft\\WindowsApps;C:\\Users\\Chalmers\\AppData\\Local\\GitHubDesktop\\bin",
+        "PLATFORMIO_CALLER": "vscode"
     }
 }
