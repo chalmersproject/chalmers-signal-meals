@@ -5,6 +5,7 @@ class Position
     unsigned long time_since_change;
     int lights_positions[4];
     const char* status_name;
+    char* color;
     unsigned long prev;
     unsigned long now = millis();
     bool counting = false;
@@ -24,8 +25,10 @@ class Position
       }
     }
     
-    bool is_active(){
-      if(digitalRead(switch_pin)){
+    bool is_active()
+    {
+      if(digitalRead(switch_pin))
+      {
         //debounce button
         if(counting == false)
         {
@@ -41,12 +44,39 @@ class Position
         }  
       }
     }
-    void send_to_firebase(){
+    void update_leds()
+    {
+      //select appropriate color for position
+      if(strcmp(status_name, "meal") == 0)
+      {
+
+      }else if(strcmp(status_name, "no_meal") == 0)
+      {
+
+      }else if(strcmp(status_name, "snacks") == 0)
+      {
+
+      }
+      //assign color to Position.LEDs[]
+
+      //
+      FastLED.show();
+    }
+    void send_to_firebase()
+    {
 
     }
+    void setup()
+    {
 
+    }
     void loop()
     {
-        now = millis();
+      now = millis();
+      if (is_active())
+      {
+        update_leds();
+        send_to_firebase();
+      }
     }
 };
