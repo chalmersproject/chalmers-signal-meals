@@ -26,7 +26,7 @@ class Position
     
     bool is_active()
     {
-      if(digitalRead(switch_pin))
+      if(!(digitalRead(switch_pin)))
       {
         //debounce button
         if(counting == false)
@@ -39,7 +39,8 @@ class Position
           //once 50 millis has passed
           //stop counting and return the debounced switch's value
           counting = false;
-          return ((digitalRead(switch_pin) ? false : true));  
+          Serial.println(status_name);
+          return ((!(digitalRead(switch_pin)) ? false : true));  
         }  
       }
     }
@@ -76,7 +77,7 @@ class Position
     }
     void setup()
     {
-
+      pinMode(switch_pin, INPUT_PULLUP);
     }
     void loop()
     {

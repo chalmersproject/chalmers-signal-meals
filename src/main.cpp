@@ -39,7 +39,13 @@ void setup() {
   FastLED.addLeds<WS2811, DATA_PIN, RGB>(leds, NUM_LEDS);
   //setup_wifi();
   //setup_firebase();
+  no_meal.setup();
+  meal.setup();
+  snacks.setup();
 }
 void loop() {
   // put your main code here, to run repeatedly:
+  no_meal.loop();
+  meal.loop();
+  snacks.loop();
 }
