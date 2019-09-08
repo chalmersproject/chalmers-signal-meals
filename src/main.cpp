@@ -26,11 +26,7 @@ int meal_lights[4] = {4,5,6,7};
 int snacks_lights[4] = {8,9,10,11};
 
 //(status-name,switch-input-pin, state, led-array-indexes)
-<<<<<<< HEAD
-Position no_meal((const char*)_no_meal, 13, false, no_meal_lights);
-=======
 Position no_meal((const char*)_no_meal, 14, false, no_meal_lights);
->>>>>>> 333016be0604a534ed772d8c0be6b9a1102bf380
 Position    meal((const char*)_meal,    2, false, meal_lights);
 Position  snacks((const char*)_snacks,  4, false, snacks_lights);
 
@@ -59,6 +55,7 @@ void setup() {
   snacks.setup();
 }
 void loop() {
+  Serial.println("program still running");
   // put your main code here, to run repeatedly:
   no_meal.loop();
   meal.loop();

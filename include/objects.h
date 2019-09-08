@@ -64,7 +64,7 @@ class Position
           Firebase.setString("meal", "meal");
         }
       }
-      else if(strcmp(status_name, "no_meal") == 0)
+      else if(strcmp(status_name, "no meal") == 0)
       {
         for(int i = 0; i < 4; i++)
         {
@@ -81,6 +81,13 @@ class Position
           leds[lights_positions[i]] = CRGB::Gold;
           Serial.println("Writing Yellow to LEDs!");
           Firebase.setString("snacks", "snack");
+        }
+      }
+      else
+      {
+        for(int i = 0; i < 12; i++)
+        {
+          leds[i] = CRGB::Black;
         }
       }
       FastLED.show();
