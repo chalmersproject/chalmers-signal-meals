@@ -5,7 +5,6 @@ class Position
     unsigned long time_since_change;
     int lights_positions[4];
     const char* status_name;
-    char* color;
     unsigned long prev;
     unsigned long now = millis();
     bool counting = false;
