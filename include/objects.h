@@ -61,7 +61,7 @@ class Position
         {
           leds[lights_positions[i]] = CRGB::Navy;
           Serial.println("Writing Green to LEDs!");
-          Firebase.setString("meal", "meal");
+          // Firebase.setString("meal", "meal");
         }
       }
       else if(strcmp(status_name, "no meal") == 0)
@@ -70,7 +70,7 @@ class Position
         {
           leds[lights_positions[i]] = CRGB::Crimson;
           Serial.println("Writing Red to LEDs!");
-          Firebase.setString("no_meal", "no meal");
+          // Firebase.setString("no_meal", "no meal");
         }
       }
       else if(strcmp(status_name, "snacks") == 0)
@@ -80,7 +80,7 @@ class Position
           FastLED.setBrightness(90);
           leds[lights_positions[i]] = CRGB::Gold;
           Serial.println("Writing Yellow to LEDs!");
-          Firebase.setString("snacks", "snack");
+          // Firebase.setString("snacks", "snack");
         }
       }
       else

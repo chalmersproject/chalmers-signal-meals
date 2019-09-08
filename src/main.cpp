@@ -55,7 +55,6 @@ void setup() {
   snacks.setup();
 }
 void loop() {
-  Serial.println("program still running");
   // put your main code here, to run repeatedly:
   no_meal.loop();
   meal.loop();
