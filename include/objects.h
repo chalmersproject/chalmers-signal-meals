@@ -53,6 +53,7 @@ class Position
         for(int i = 0; i < 4; i++)
         {
           leds[lights_positions[i]] = CRGB::Green;
+          Serial.println("Writing Green to LEDs!");
         }
       }
       else if(strcmp(status_name, "no_meal") == 0)
@@ -60,6 +61,7 @@ class Position
         for(int i = 0; i < 4; i++)
         {
           leds[lights_positions[i]] = CRGB::Red;
+          Serial.println("Writing Red to LEDs!");
         }
       }
       else if(strcmp(status_name, "snacks") == 0)
@@ -67,6 +69,7 @@ class Position
         for(int i = 0; i < 4; i++)
         {
           leds[lights_positions[i]] = CRGB::Yellow;
+          Serial.println("Writing Yellow to LEDs!");
         }
       }
       FastLED.show();
