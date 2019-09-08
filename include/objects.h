@@ -67,7 +67,7 @@ class Position
       {
         for(int i = 0; i < 4; i++)
         {
-          leds[lights_positions[i]] = CRGB::Red;
+          leds[lights_positions[i]] = CRGB::Crimson;
           Serial.println("Writing Red to LEDs!");
         }
       }
