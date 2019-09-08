@@ -8,8 +8,11 @@
 #include <credentials.h>
 #include <methods.h>
 #include <objects.h>
-// CRGB leds[NUM_LEDS];
+
 FASTLED_USING_NAMESPACE
+#define NUM_LEDS 12
+#define DATA_PIN 5
+CRGB leds[NUM_LEDS];
 
 using namespace std;
 
@@ -28,7 +31,9 @@ Position  snacks((const char*)_snacks,  14, false, snacks_lights);
 
 
 void setup() {
-  //delay(3000);
+  // sanity check delay - allows reprogramming if accidently blowing power w/leds
+  delay(2000);
+  FastLED.addLeds<WS2811, DATA_PIN, RGB>(leds, NUM_LEDS);
   //setup_wifi();
   //setup_firebase();
 }
