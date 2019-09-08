@@ -27,12 +27,14 @@ int snacks_lights[4] = {8,9,10,11};
 
 //(status-name,switch-input-pin, state, led-array-indexes)
 Position no_meal((const char*)_no_meal, 12, false, no_meal_lights);
-Position    meal((const char*)_meal,    13, false, meal_lights);
-Position  snacks((const char*)_snacks,  14, false, snacks_lights);
+Position    meal((const char*)_meal,    2, false, meal_lights);
+Position  snacks((const char*)_snacks,  4, false, snacks_lights);
 
 
 void setup() {
   // sanity check delay - allows reprogramming if accidently blowing power w/leds
+  Serial.begin(115200);
+  Serial.println("Chalmers Signal Booting!");
   delay(2000);
   FastLED.addLeds<WS2811, DATA_PIN, RGB>(leds, NUM_LEDS);
   //setup_wifi();
