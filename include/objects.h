@@ -40,19 +40,26 @@ class Position
           //stop counting and return the debounced switch's value
           counting = false;
           Serial.println(status_name);
-          return ((!(digitalRead(switch_pin)) ? false : true));  
+          return true;
         }  
+      }
+      else{
+        return false;
       }
     }
     void update_leds()
     {
       //select appropriate color for position
       //assign color to Position.LEDs[]
+      for(int i = 0; i < 12; i++)
+      {
+        leds[i] = CRGB::Black;
+      }
       if(strcmp(status_name, "meal") == 0)
       {
         for(int i = 0; i < 4; i++)
         {
-          leds[lights_positions[i]] = CRGB::Green;
+          leds[lights_positions[i]] = CRGB::YellowGreen;
           Serial.println("Writing Green to LEDs!");
         }
       }
@@ -68,7 +75,7 @@ class Position
       {
         for(int i = 0; i < 4; i++)
         {
-          leds[lights_positions[i]] = CRGB::Yellow;
+          leds[lights_positions[i]] = CRGB::PaleGoldenrod;
           Serial.println("Writing Yellow to LEDs!");
         }
       }
@@ -87,6 +94,7 @@ class Position
       now = millis();
       if (is_active())
       {
+        Serial.println("Updating LEDs");
         update_leds();
         send_to_firebase();
       }
