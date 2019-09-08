@@ -49,16 +49,15 @@ class Position
       //select appropriate color for position
       if(strcmp(status_name, "meal") == 0)
       {
-
+        color = "Green";
       }else if(strcmp(status_name, "no_meal") == 0)
       {
-
+        color = "Red";
       }else if(strcmp(status_name, "snacks") == 0)
       {
-
+        color = "Yellow";
       }
       //assign color to Position.LEDs[]
-
       //
       FastLED.show();
     }
