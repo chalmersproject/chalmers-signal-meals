@@ -1,18 +1,19 @@
 //Library Includes
 #include <Arduino.h>
 #include <ESP8266WiFi.h>
-#include <FastLED.h>
 #include <FirebaseArduino.h>
+#include <FastLED.h>
+FASTLED_USING_NAMESPACE
+#define NUM_LEDS 12
+#define DATA_PIN 5
+CRGB leds[NUM_LEDS];
 
 //my own header files
 #include <credentials.h>
 #include <methods.h>
 #include <objects.h>
 
-FASTLED_USING_NAMESPACE
-#define NUM_LEDS 12
-#define DATA_PIN 5
-CRGB leds[NUM_LEDS];
+
 
 using namespace std;
 

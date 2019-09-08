@@ -47,18 +47,28 @@ class Position
     void update_leds()
     {
       //select appropriate color for position
+      //assign color to Position.LEDs[]
       if(strcmp(status_name, "meal") == 0)
       {
-        color = "Green";
-      }else if(strcmp(status_name, "no_meal") == 0)
-      {
-        color = "Red";
-      }else if(strcmp(status_name, "snacks") == 0)
-      {
-        color = "Yellow";
+        for(int i = 0; i < 4; i++)
+        {
+          leds[lights_positions[i]] = CRGB::Green;
+        }
       }
-      //assign color to Position.LEDs[]
-      //
+      else if(strcmp(status_name, "no_meal") == 0)
+      {
+        for(int i = 0; i < 4; i++)
+        {
+          leds[lights_positions[i]] = CRGB::Red;
+        }
+      }
+      else if(strcmp(status_name, "snacks") == 0)
+      {
+        for(int i = 0; i < 4; i++)
+        {
+          leds[lights_positions[i]] = CRGB::Yellow;
+        }
+      }
       FastLED.show();
     }
     void send_to_firebase()
