@@ -23,9 +23,8 @@ int snacks_lights[4] = {8,9,10,11};
 
 //(status-name,switch-input-pin, state, led-array-indexes)
 Position no_meal((const char*)_no_meal, 12, false, no_meal_lights);
-Position    meal((const char*)_meal,    12, false, meal_lights);
-Position  snacks((const char*)_snacks,  12, false, snacks_lights);
-
+Position    meal((const char*)_meal,    13, false, meal_lights);
+Position  snacks((const char*)_snacks,  14, false, snacks_lights);
 
 
 void setup() {
