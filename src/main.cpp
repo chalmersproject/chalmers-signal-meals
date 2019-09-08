@@ -26,7 +26,11 @@ int meal_lights[4] = {4,5,6,7};
 int snacks_lights[4] = {8,9,10,11};
 
 //(status-name,switch-input-pin, state, led-array-indexes)
+<<<<<<< HEAD
 Position no_meal((const char*)_no_meal, 13, false, no_meal_lights);
+=======
+Position no_meal((const char*)_no_meal, 14, false, no_meal_lights);
+>>>>>>> 333016be0604a534ed772d8c0be6b9a1102bf380
 Position    meal((const char*)_meal,    2, false, meal_lights);
 Position  snacks((const char*)_snacks,  4, false, snacks_lights);
 
@@ -37,8 +41,19 @@ void setup() {
   Serial.println("Chalmers Signal Booting!");
   delay(2000);
   FastLED.addLeds<WS2811, DATA_PIN, RGB>(leds, NUM_LEDS);
-  //setup_wifi();
-  //setup_firebase();
+  FastLED.setBrightness(128);
+
+  WiFi.begin(ssid, wifi_password);
+  Serial.print("connecting");
+  while (WiFi.status() != WL_CONNECTED) {
+    Serial.print(".");
+    delay(500);
+  }
+  Serial.println();
+  Serial.print("connected: ");
+  Serial.println(WiFi.localIP());
+  
+  Firebase.begin(FIREBASE_HOST, FIREBASE_AUTH);
   no_meal.setup();
   meal.setup();
   snacks.setup();
