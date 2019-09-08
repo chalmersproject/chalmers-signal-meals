@@ -85,10 +85,6 @@ class Position
       }
       FastLED.show();
     }
-    void send_to_firebase()
-    {
-
-    }
     void setup()
     {
       pinMode(switch_pin, INPUT_PULLUP);
