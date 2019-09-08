@@ -7,6 +7,7 @@ class Position
     const char* status_name;
     unsigned long prev;
     unsigned long now = millis();
+    bool counting = false;
 
     public:
     Position(const char name[], int pin, bool state, int* lights)
@@ -26,10 +27,17 @@ class Position
     bool is_active(){
       if(digitalRead(switch_pin)){
         //debounce button
-        prev = now;
+        if(counting == false)
+        {
+          prev = now; //start counting to 50 millis
+          counting = true;
+        }
         if((now - prev) > 50)
         {
-            return ((digitalRead(switch_pin) ? false : true));  
+          //once 50 millis has passed
+          //stop counting and return the debounced switch's value
+          counting = false;
+          return ((digitalRead(switch_pin) ? false : true));  
         }  
       }
     }
