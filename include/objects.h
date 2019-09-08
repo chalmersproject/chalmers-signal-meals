@@ -47,7 +47,7 @@ class Position
         return false;
       }
     }
-    void update_leds()
+    void update_leds_and_firebase()
     {
       //select appropriate color for position
       //assign color to Position.LEDs[]
@@ -59,24 +59,28 @@ class Position
       {
         for(int i = 0; i < 4; i++)
         {
-          leds[lights_positions[i]] = CRGB::YellowGreen;
+          leds[lights_positions[i]] = CRGB::Navy;
           Serial.println("Writing Green to LEDs!");
+          Firebase.setString("meal", "meal");
         }
       }
       else if(strcmp(status_name, "no_meal") == 0)
       {
         for(int i = 0; i < 4; i++)
         {
-          leds[lights_positions[i]] = CRGB::Red;
+          leds[lights_positions[i]] = CRGB::Crimson;
           Serial.println("Writing Red to LEDs!");
+          Firebase.setString("no_meal", "no meal");
         }
       }
       else if(strcmp(status_name, "snacks") == 0)
       {
         for(int i = 0; i < 4; i++)
         {
-          leds[lights_positions[i]] = CRGB::PaleGoldenrod;
+          FastLED.setBrightness(90);
+          leds[lights_positions[i]] = CRGB::Gold;
           Serial.println("Writing Yellow to LEDs!");
+          Firebase.setString("snacks", "snack");
         }
       }
       FastLED.show();
@@ -95,8 +99,7 @@ class Position
       if (is_active())
       {
         Serial.println("Updating LEDs");
-        update_leds();
-        send_to_firebase();
+        update_leds_and_firebase();
       }
     }
 };
