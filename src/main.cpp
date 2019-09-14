@@ -33,7 +33,7 @@ Position  snacks((const char*)_snacks,  4, false, snacks_lights);
 
 void setup() {
   // sanity check delay - allows reprogramming if accidently blowing power w/leds
-  Serial.begin(115200);
+  Serial.begin(1152000);
   Serial.println("Chalmers Signal Booting!");
   delay(2000);
   FastLED.addLeds<WS2811, DATA_PIN, RGB>(leds, NUM_LEDS);
