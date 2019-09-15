@@ -2,6 +2,8 @@
 #include <Arduino.h>
 #include <ESP8266WiFi.h>
 #include <FirebaseArduino.h>
+#define ARDUINOJSON_USE_ARDUINO_STRING 1
+#include "third-party/arduino-json-5.6.7/include/ArduinoJson.h"
 #include <FastLED.h>
 
 FASTLED_USING_NAMESPACE
