@@ -3,6 +3,7 @@
 #include <ESP8266WiFi.h>
 #include <FirebaseArduino.h>
 #include <FastLED.h>
+
 FASTLED_USING_NAMESPACE
 #define NUM_LEDS 12
 #define DATA_PIN 5
@@ -13,9 +14,8 @@ CRGB leds[NUM_LEDS];
 #include <methods.h>
 #include <position.h>
 
-
-
 using namespace std;
+
 
 const char _no_meal[] = "no meal";
 const char _meal[] = "meal";
