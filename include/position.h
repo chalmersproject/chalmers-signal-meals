@@ -80,7 +80,7 @@ class Position
           FastLED.setBrightness(90);
           leds[lights_positions[i]] = CRGB::Gold;
           Serial.println("Writing Yellow to LEDs!");
-          // Firebase.setString("snacks", "snack");
+          Firebase.setString("snacks", "snack");
         }
       }
       else
