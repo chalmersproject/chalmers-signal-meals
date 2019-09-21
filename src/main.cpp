@@ -18,6 +18,7 @@ CRGB leds[NUM_LEDS];
 
 using namespace std;
 
+const String _firebase_path = "st_felix_augusta/meal_program/";
 
 const char _no_meal[] = "no meal";
 const char _meal[] = "meal";
@@ -28,14 +29,14 @@ int meal_lights[4] = {4,5,6,7};
 int snacks_lights[4] = {8,9,10,11};
 
 //(status-name,switch-input-pin, state, led-array-indexes)
-Position no_meal((const char*)_no_meal, 14, false, no_meal_lights);
-Position    meal((const char*)_meal,    2, false, meal_lights);
-Position  snacks((const char*)_snacks,  4, false, snacks_lights);
+Position no_meal((const char*)_no_meal, _firebase_path, 14, false, no_meal_lights);
+Position    meal((const char*)_meal, _firebase_path,   2, false, meal_lights);
+Position  snacks((const char*)_snacks, _firebase_path,  4, false, snacks_lights);
 
 
 void setup() {
   // sanity check delay - allows reprogramming if accidently blowing power w/leds
-  Serial.begin(1152000);
+  Serial.begin(115200);
   Serial.println("Chalmers Signal Booting!");
   delay(2000);
   FastLED.addLeds<WS2811, DATA_PIN, RGB>(leds, NUM_LEDS);

@@ -8,12 +8,12 @@ class Position
     unsigned long prev;
     unsigned long now = millis();
     bool counting = false;
-
+    const String firebase_path; 
     public:
-    Position(const char name[], int pin, bool state, int* lights)
+    Position(const char name[], const String path, int pin, bool state, int* lights)
     {
       status_name = name;
-
+      // firebase_path = path;
       switch_pin = pin;
       pinMode(switch_pin, INPUT_PULLUP);
 
@@ -61,7 +61,17 @@ class Position
         {
           leds[lights_positions[i]] = CRGB::Navy;
           Serial.println("Writing Green to LEDs!");
-          // Firebase.setString("meal", "meal");
+          Firebase.setString("st_felix_augusta/meal_program/", "meal");
+          if(Firebase.success())
+          {
+            Serial.println("successful Firesbase.set()");
+            return;
+          }
+          else
+          {
+            Serial.println("failed to send once, retrying");
+            Firebase.setString("st_felix_augusta/meal_program/", "meal");  
+          }
         }
       }
       else if(strcmp(status_name, "no meal") == 0)
@@ -70,7 +80,17 @@ class Position
         {
           leds[lights_positions[i]] = CRGB::Crimson;
           Serial.println("Writing Red to LEDs!");
-          // Firebase.setString("no_meal", "no meal");
+          Firebase.setString("meal_program", "no meal");
+          if(Firebase.success())
+          {
+            Serial.println("successful Firesbase.set()");
+            return;
+          }
+          else
+          {
+            Serial.println("failed to send once, retrying");
+            Firebase.setString("meal_program", "no meal");
+          }
         }
       }
       else if(strcmp(status_name, "snacks") == 0)
@@ -80,7 +100,17 @@ class Position
           FastLED.setBrightness(90);
           leds[lights_positions[i]] = CRGB::Gold;
           Serial.println("Writing Yellow to LEDs!");
-          Firebase.setString("snacks", "snack");
+          Firebase.setString("meal_program", "snack");
+          if(Firebase.success())
+          {
+            Serial.println("successful Firesbase.set()");
+            return;
+          }
+          else
+          {
+            Serial.println("failed to send once, retrying");
+            Firebase.setString("meal_program", "snack");
+          }
         }
       }
       else
